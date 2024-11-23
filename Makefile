@@ -2,7 +2,8 @@ NAME = push_swap
 CC = cc
 CFLAGS = -Wall -Werror -Wextra
 
-SRC_FILES = main.c parse.c error.c
+SRC_FILES = sources/parse.c sources/main.c sources/utils.c sources/errors.c sources/sort.c sources/sortopt/push.c sources/sortopt/rotate.c sources/sortopt/swap.c sources/sortopt/reverse_rotate.c 
+
 OBJ_FILES = $(SRC_FILES:.c=.o)
 
 all: $(NAME)

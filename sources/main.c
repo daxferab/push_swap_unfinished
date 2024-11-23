@@ -1,19 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   error.c                                            :+:      :+:    :+:   */
+/*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: daxferna <daxferna@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/07 19:07:43 by daxferna          #+#    #+#             */
-/*   Updated: 2024/10/22 21:36:06 by daxferna         ###   ########.fr       */
+/*   Created: 2024/10/07 19:10:43 by daxferna          #+#    #+#             */
+/*   Updated: 2024/11/05 23:17:18 by daxferna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../push_swap.h"
 
-void	ft_error(void)
+int	main(int argc, char **argv)
 {
-	ft_printf ("Error\n", 2);
-	exit(0);
+	t_list	*stack_a;
+	t_list	*stack_b;
+
+	stack_a = NULL;
+	stack_b = NULL;
+	if (!ft_parse(argc, argv, stack_a)) // Initialize stack_a
+		ft_error(stack_a, stack_b);
+	if (ft_sort(stack_a, stack_b)) // Sort
+		ft_error(stack_a, stack_b);
+	return (0);
 }

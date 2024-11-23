@@ -1,0 +1,17 @@
+Parsear argumentos de entrada (ft_parse):
+  - Si no hay argumentos, salir del programa 
+  - Recorrer argumentos:
+  - Hacer split y guardar en un doble array
+    - Recorrer array:
+        - Atoi
+        - Comprobar que no esta ya en la lista
+        - Crear nodo y linkearlo a lista
+  - Devolver lista
+
+Ordenar (ft_sort):
+  - Comprobar cuantos elementos hay en la listas
+
+[ ] Comprobar subject
+[ ] Comprobar código (quitar comentarios, quiitar librerías sin usar, makefile) 
+[ ] Comprobar repo
+[ ] Norminette

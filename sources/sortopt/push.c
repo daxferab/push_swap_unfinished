@@ -1,37 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   parse.c                                            :+:      :+:    :+:   */
+/*   push.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: daxferna <daxferna@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/07 19:07:43 by daxferna          #+#    #+#             */
-/*   Updated: 2024/10/22 22:03:22 by daxferna         ###   ########.fr       */
+/*   Created: 2024/11/14 17:43:24 by daxferna          #+#    #+#             */
+/*   Updated: 2024/11/14 19:29:39 by daxferna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../../push_swap.h"
 
-
-
-int	ft_parse(int argc, char *argv)
+bool	push(t_list **stack_1, t_list **stack_2, char *movement) //push a (st_a, st_b, "pa") push b (st_b, st_a, "pb")
 {
-	t_list	*stack_a;
-	char	**splitted;
-	int		i;
-	int		j;
-	int		number;
+	t_list	*tmp;
 
-	i = 1;
-	while (i < argc)
-	{
-		splitted = ft_split(argv[i++], ' ');
-		j = 0;
-		while (splitted[j++])
-		{
-			number = ft_atoi(splitted[j]);
-			ft_lstadd_back(&stack_a, ft_lstnew(number));
-		}
-	}
-	return (stack_a);
+	if (!stack_2)
+		return (false);
+	tmp = *stack_1;
+	*stack_1 = *stack_2;
+	*stack_2 = (*stack_2)->next;
+	(*stack_1)->next = tmp;
+	printf("%s\n", movement);
+	return (true);
 }

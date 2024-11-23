@@ -1,21 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   errors.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: daxferna <daxferna@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/07 19:10:43 by daxferna          #+#    #+#             */
-/*   Updated: 2024/10/22 21:28:33 by daxferna         ###   ########.fr       */
+/*   Created: 2024/10/31 19:42:43 by daxferna          #+#    #+#             */
+/*   Updated: 2024/11/05 23:22:24 by daxferna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../push_swap.h"
 
-int	main(int argc, char **argv)
+void ft_error(t_list *stack_a, t_list *stack_b)
 {
-	t_list	*stack_a;
+	ft_lstclear(stack_a, free);
+	ft_lstclear(stack_b, free);
+	ft_putstr_fd("Error\n", 2);
+	exit(1);
+}
 
-	stack_a = ft_parse(argc, argv);
-	ft_sort(stack_a);
+void ft_alreadysorted(t_list *stack_a, t_list *stack_b)
+{
+	ft_lstclear(stack_a, free);
+	ft_lstclear(stack_b, free);
+	exit(0);
 }
