@@ -6,7 +6,7 @@
 /*   By: daxferna <daxferna@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/14 17:43:24 by daxferna          #+#    #+#             */
-/*   Updated: 2024/11/14 19:29:39 by daxferna         ###   ########.fr       */
+/*   Updated: 2024/11/23 14:21:27 by daxferna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,10 +18,10 @@ bool	push(t_list **stack_1, t_list **stack_2, char *movement) //push a (st_a, st
 
 	if (!stack_2)
 		return (false);
-	tmp = *stack_1;
-	*stack_1 = *stack_2;
-	*stack_2 = (*stack_2)->next;
-	(*stack_1)->next = tmp;
+	tmp = *stack_2;
+	stack_2 = (*stack_2)->next;
+	tmp->next = *stack_1;
+	*stack_1 = tmp;
 	printf("%s\n", movement);
 	return (true);
 }

@@ -6,7 +6,7 @@
 /*   By: daxferna <daxferna@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/14 17:44:05 by daxferna          #+#    #+#             */
-/*   Updated: 2024/11/18 19:56:54 by daxferna         ###   ########.fr       */
+/*   Updated: 2024/11/23 12:55:01 by daxferna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,10 +18,10 @@ bool	rotate(t_list **stack, char *movement)
 
 	if (ft_lstsize(stack) <= 1)
 		return (false);
-	tmp = ft_lstlast(&stack);
-	tmp->next = *stack;
-	stack = (*stack)->next;
-	tmp->next->next = NULL;
+	tmp = *stack;
+	ft_lstlast(stack)->next = *stack;
+	*stack = (*stack)->next;
+	tmp->next = NULL;
 	if (movement)
 		printf("%s\n", movement);
 }

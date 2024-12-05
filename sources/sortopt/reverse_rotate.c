@@ -6,17 +6,17 @@
 /*   By: daxferna <daxferna@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/14 19:44:51 by daxferna          #+#    #+#             */
-/*   Updated: 2024/11/18 20:36:10 by daxferna         ###   ########.fr       */
+/*   Updated: 2024/11/23 13:07:40 by daxferna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../push_swap.h"
 
-t_list	*ft_penultimate(t_list **stack)
+t_list	*ft_penultimate(t_list *stack)
 {
 	t_list	*tmp;
 
-	tmp = *stack;
+	tmp = stack;
 	while (tmp->next->next)
 		tmp = tmp->next;
 	return (tmp);
@@ -25,11 +25,15 @@ t_list	*ft_penultimate(t_list **stack)
 bool	rev_rotate(t_list **stack_a, char *movement)
 {
 	t_list	*tmp;
+	t_list	*last;
 
-	tmp = ft_lstlast(stack_a);
-	tmp->next = *stack_a;
-	*stack_a = tmp;
-	ft_penultimate(&stack_a)->next = NULL;
+	if (ft_lstsize(stack_a) <= 1)
+		return (false);
+	tmp = ft_penultimate(stack_a);
+	last = ft_lstlast(stack_a);
+	last->next = *stack_a;
+	*stack_a = last;
+	tmp->next = NULL;
 	if (movement)
 		printf("%s\n", movement);
 }

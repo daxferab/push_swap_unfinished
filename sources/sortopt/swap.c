@@ -6,7 +6,7 @@
 /*   By: daxferna <daxferna@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/06 00:27:19 by daxferna          #+#    #+#             */
-/*   Updated: 2024/11/14 19:29:36 by daxferna         ###   ########.fr       */
+/*   Updated: 2024/11/23 16:07:10 by daxferna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ bool	swap(t_list **stack, char *movement)
 	if (ft_lstsize(stack) <= 1)
 		return (false);
 	tmp = (*stack)->next;
-	(*stack)->next = tmp->next;
+	*stack = (*stack)->next->next;
 	tmp->next = *stack;
 	*stack = tmp;
 	if (movement)

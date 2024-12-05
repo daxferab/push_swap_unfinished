@@ -6,7 +6,7 @@
 /*   By: daxferna <daxferna@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/05 22:13:56 by daxferna          #+#    #+#             */
-/*   Updated: 2024/11/05 23:09:01 by daxferna         ###   ########.fr       */
+/*   Updated: 2024/12/05 17:19:10 by daxferna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ int ft_isnum(char *str)
 	i = 0;
 	while (str[i])
 	{
-		if (!isdigit(str[i]))
+		if (!ft_isdigit(str[i]))
 		return (0);
 		i++;
 	}
@@ -43,7 +43,7 @@ bool ft_imprvatoi(char *str, int *num)
 	}
 	while (str[i])
 	{
-		if (!isdigit(str[i]))
+		if (!ft_isdigit(str[i]))
 			return (0);
 		*num = *num * 10 + (str[i] - '0');
 		if (*num < INT_MIN || *num > INT_MAX)

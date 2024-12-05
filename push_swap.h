@@ -6,7 +6,7 @@
 /*   By: daxferna <daxferna@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/07 19:07:40 by daxferna          #+#    #+#             */
-/*   Updated: 2024/11/14 19:47:35 by daxferna         ###   ########.fr       */
+/*   Updated: 2024/12/05 17:42:08 by daxferna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@
 
 //parse.c
 bool		ft_parse(int argc, char **argv, t_list *stack_a);
+void		ft_assignindex(t_list *stack_a);
 bool		ft_addtolist(t_list *stack_a, char *num);
 
 //utils.c
@@ -45,6 +46,7 @@ bool		rotate(t_list **stack, char *movement);
 bool		rr(t_list *stack_a, t_list *stack_b);
 
 //	reverse_rotate.c
+t_list		*ft_penultimate(t_list *stack);
 bool		rev_rotate(t_list **stack_a, char *movement);
 bool		rrr(t_list *stack_a, t_list *stack_b);
 
