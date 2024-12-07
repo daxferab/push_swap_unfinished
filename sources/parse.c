@@ -6,7 +6,7 @@
 /*   By: daxferna <daxferna@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/07 19:07:43 by daxferna          #+#    #+#             */
-/*   Updated: 2024/12/05 17:41:59 by daxferna         ###   ########.fr       */
+/*   Updated: 2024/12/07 21:38:22 by daxferna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,26 @@ bool	ft_addtolist(t_list *stack_a, char	*num)
 
 void	ft_assignindex(t_list *stack_a)
 {
-	//TODO: Implementar
+	t_list	*tmp1;
+	t_list	*tmp2;
+	int		i;
+
+	tmp1 = stack_a;
+	tmp2 = stack_a;
+	i = 0;
+	while (tmp1)
+	{
+		while (tmp2)
+		{
+			if (tmp1->content > tmp2->content)
+				i++;
+			tmp2 = tmp2->next;
+		}
+		tmp1->index = i;
+		i = 0;
+		tmp1 = tmp1->next;
+		tmp2 = stack_a;
+	}
 }
 
 bool	ft_parse(int argc, char **argv, t_list *stack_a)
