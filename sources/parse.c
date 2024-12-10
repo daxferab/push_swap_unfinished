@@ -6,7 +6,7 @@
 /*   By: daxferna <daxferna@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/07 19:07:43 by daxferna          #+#    #+#             */
-/*   Updated: 2024/12/07 21:38:22 by daxferna         ###   ########.fr       */
+/*   Updated: 2024/12/10 02:26:41 by daxferna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,21 +31,21 @@ void	ft_assignindex(t_list *stack_a)
 {
 	t_list	*tmp1;
 	t_list	*tmp2;
-	int		i;
+	int		ind;
 
 	tmp1 = stack_a;
 	tmp2 = stack_a;
-	i = 0;
+	ind = 0;
 	while (tmp1)
 	{
 		while (tmp2)
 		{
 			if (tmp1->content > tmp2->content)
-				i++;
+				ind++;
 			tmp2 = tmp2->next;
 		}
-		tmp1->index = i;
-		i = 0;
+		tmp1->index = ind;
+		ind = 0;
 		tmp1 = tmp1->next;
 		tmp2 = stack_a;
 	}
