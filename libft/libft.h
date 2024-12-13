@@ -6,7 +6,7 @@
 /*   By: daxferna <daxferna@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/21 18:10:16 by daxferna          #+#    #+#             */
-/*   Updated: 2024/12/05 17:23:27 by daxferna         ###   ########.fr       */
+/*   Updated: 2024/12/13 15:37:01 by daxferna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,6 @@ void			ft_putnbr_fd(int n, int fd);
 typedef struct s_list
 {
 	void			*content;
-	int				index;
 	struct s_list	*next;
 }	t_list;
 

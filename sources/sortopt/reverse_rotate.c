@@ -6,15 +6,15 @@
 /*   By: daxferna <daxferna@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/14 19:44:51 by daxferna          #+#    #+#             */
-/*   Updated: 2024/11/23 13:07:40 by daxferna         ###   ########.fr       */
+/*   Updated: 2024/12/13 15:41:30 by daxferna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../push_swap.h"
 
-t_list	*ft_penultimate(t_list *stack)
+t_num	*ft_penultimate(t_num *stack)
 {
-	t_list	*tmp;
+	t_num	*tmp;
 
 	tmp = stack;
 	while (tmp->next->next)
@@ -22,10 +22,10 @@ t_list	*ft_penultimate(t_list *stack)
 	return (tmp);
 }
 
-bool	rev_rotate(t_list **stack_a, char *movement)
+bool	rev_rotate(t_num **stack_a, char *movement)
 {
-	t_list	*tmp;
-	t_list	*last;
+	t_num	*tmp;
+	t_num	*last;
 
 	if (ft_lstsize(stack_a) <= 1)
 		return (false);
@@ -38,7 +38,7 @@ bool	rev_rotate(t_list **stack_a, char *movement)
 		printf("%s\n", movement);
 }
 
-bool	rrr(t_list *stack_a, t_list *stack_b)
+bool	rrr(t_num *stack_a, t_num *stack_b)
 {
 	if (!rrotate(&stack_a, NULL) || !rrotate(&stack_b, NULL))
 		return (false);

@@ -6,15 +6,15 @@
 /*   By: daxferna <daxferna@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/14 17:44:05 by daxferna          #+#    #+#             */
-/*   Updated: 2024/11/23 12:55:01 by daxferna         ###   ########.fr       */
+/*   Updated: 2024/12/13 15:42:11 by daxferna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../push_swap.h"
 
-bool	rotate(t_list **stack, char *movement)
+bool	rotate(t_num **stack, char *movement)
 {
-	t_list	*tmp;
+	t_num	*tmp;
 
 	if (ft_lstsize(stack) <= 1)
 		return (false);
@@ -26,7 +26,7 @@ bool	rotate(t_list **stack, char *movement)
 		printf("%s\n", movement);
 }
 
-bool	rr(t_list *stack_a, t_list *stack_b)
+bool	rr(t_num *stack_a, t_num *stack_b)
 {
 	if (!rotate(&stack_a, NULL) || !rotate(&stack_b, NULL))
 		return (false);

@@ -6,15 +6,15 @@
 /*   By: daxferna <daxferna@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/06 00:27:19 by daxferna          #+#    #+#             */
-/*   Updated: 2024/11/23 16:07:10 by daxferna         ###   ########.fr       */
+/*   Updated: 2024/12/13 15:42:58 by daxferna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../push_swap.h"
 
-bool	swap(t_list **stack, char *movement)
+bool	swap(t_num **stack, char *movement)
 {
-	t_list	*tmp;
+	t_num	*tmp;
 
 	if (ft_lstsize(stack) <= 1)
 		return (false);
@@ -27,7 +27,7 @@ bool	swap(t_list **stack, char *movement)
 	return (true);
 }
 
-bool	ss(t_list *stack_a, t_list *stack_b)
+bool	ss(t_num *stack_a, t_num *stack_b)
 {
 	if (!swap(&stack_a, NULL) || !swap(&stack_b, NULL))
 		return (false);

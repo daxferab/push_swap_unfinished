@@ -6,15 +6,15 @@
 /*   By: daxferna <daxferna@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/05 23:18:29 by daxferna          #+#    #+#             */
-/*   Updated: 2024/12/05 17:21:06 by daxferna         ###   ########.fr       */
+/*   Updated: 2024/12/13 15:44:32 by daxferna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-bool	ft_is_sorted(t_list *stack_a) //TODO: function
+bool	ft_is_sorted(t_num *stack_a) //TODO: function
 {
-	t_list	*current;
+	t_num	*current;
 
 	current = stack_a;
 	while (current->next)
@@ -26,9 +26,9 @@ bool	ft_is_sorted(t_list *stack_a) //TODO: function
 	return (1);
 }
 
-bool	ft_sort(t_list *stack_a, t_list *stack_b)
+bool	ft_sort(t_num *stack_a, t_num *stack_b)
 {
 	if (ft_is_sorted(stack_a))
-		ft_sorted(stack_a, stack_b);
+		ft_alreadysorted(stack_a, stack_b);
 	
 }

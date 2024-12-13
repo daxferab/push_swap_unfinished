@@ -6,15 +6,16 @@
 /*   By: daxferna <daxferna@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/07 19:07:43 by daxferna          #+#    #+#             */
-/*   Updated: 2024/12/10 02:26:41 by daxferna         ###   ########.fr       */
+/*   Updated: 2024/12/13 15:44:25 by daxferna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-bool	ft_addtolist(t_list *stack_a, char	*num)
+
+bool	ft_addtolist(t_num *stack_a, char	*num)
 {
-	t_list	*new_node;
+	t_num	*new_node;
 	int		*numint;
 
 	numint = malloc(sizeof(int));
@@ -27,33 +28,9 @@ bool	ft_addtolist(t_list *stack_a, char	*num)
 	return (1);
 }
 
-void	ft_assignindex(t_list *stack_a)
+bool	ft_parse(int argc, char **argv, t_num *stack_a)
 {
-	t_list	*tmp1;
-	t_list	*tmp2;
-	int		ind;
-
-	tmp1 = stack_a;
-	tmp2 = stack_a;
-	ind = 0;
-	while (tmp1)
-	{
-		while (tmp2)
-		{
-			if (tmp1->content > tmp2->content)
-				ind++;
-			tmp2 = tmp2->next;
-		}
-		tmp1->index = ind;
-		ind = 0;
-		tmp1 = tmp1->next;
-		tmp2 = stack_a;
-	}
-}
-
-bool	ft_parse(int argc, char **argv, t_list *stack_a)
-{
-	char	**sp_arg;
+	char	**splitted_args;
 	int		i;
 	int		j;
 
@@ -61,16 +38,15 @@ bool	ft_parse(int argc, char **argv, t_list *stack_a)
 	j = 0;
 	while (i < argc) // Recorrer cada argumento
 	{
-		sp_arg = ft_split(argv[i++], ' '); // Split de cada argumento
-		if (sp_arg == NULL)
+		splitted_args = ft_split(argv[i++], ' '); // Split de cada argumento
+		if (splitted_args == NULL)
 			return (0);
-		while (sp_arg[j++]) // Recorrer cada argumento splitteado
+		while (splitted_args[j++]) // Recorrer cada argumento splitteado
 		{
-			if (!ft_addtolist(stack_a, sp_arg[j])) //Comprobar int y no repetido y agregar a lista
+			if (!ft_addtolist(stack_a, splitted_args[j])) //Comprobar int y no repetido y agregar a lista
 				return (0);
 		}
 	}
-	ft_assignindex(stack_a); // Asignar index a cada nodo
-	free(sp_arg);
+	free(splitted_args);
 	return (1);
 }
