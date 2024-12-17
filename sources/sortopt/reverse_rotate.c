@@ -6,7 +6,7 @@
 /*   By: daxferna <daxferna@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/14 19:44:51 by daxferna          #+#    #+#             */
-/*   Updated: 2024/12/13 15:41:30 by daxferna         ###   ########.fr       */
+/*   Updated: 2024/12/13 17:35:45 by daxferna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,15 +27,15 @@ bool	rev_rotate(t_num **stack_a, char *movement)
 	t_num	*tmp;
 	t_num	*last;
 
-	if (ft_lstsize(stack_a) <= 1)
+	if (lstsize(stack_a) <= 1)
 		return (false);
 	tmp = ft_penultimate(stack_a);
-	last = ft_lstlast(stack_a);
+	last = lstlast(stack_a);
 	last->next = *stack_a;
 	*stack_a = last;
 	tmp->next = NULL;
 	if (movement)
-		printf("%s\n", movement);
+		ft_printf("%s\n", movement);
 }
 
 bool	rrr(t_num *stack_a, t_num *stack_b)

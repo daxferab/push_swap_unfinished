@@ -6,7 +6,7 @@
 /*   By: daxferna <daxferna@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/14 17:44:05 by daxferna          #+#    #+#             */
-/*   Updated: 2024/12/13 15:42:11 by daxferna         ###   ########.fr       */
+/*   Updated: 2024/12/13 17:35:48 by daxferna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,14 +16,14 @@ bool	rotate(t_num **stack, char *movement)
 {
 	t_num	*tmp;
 
-	if (ft_lstsize(stack) <= 1)
+	if (lstsize(stack) <= 1)
 		return (false);
 	tmp = *stack;
-	ft_lstlast(stack)->next = *stack;
+	lstlast(stack)->next = *stack;
 	*stack = (*stack)->next;
 	tmp->next = NULL;
 	if (movement)
-		printf("%s\n", movement);
+		ft_printf("%s\n", movement);
 }
 
 bool	rr(t_num *stack_a, t_num *stack_b)

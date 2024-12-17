@@ -1,8 +1,8 @@
 NAME = push_swap
 CC = cc
-CFLAGS = -Wall -Werror -Wextra
+CFLAGS = -Wall -Werror -Wextra #-g3 -fsanitize=address
 
-SRC_FILES = sources/parse.c sources/main.c sources/utils.c sources/errors.c sources/sort.c sources/sortopt/push.c sources/sortopt/rotate.c sources/sortopt/swap.c sources/sortopt/reverse_rotate.c 
+SRC_FILES = sources/parse.c sources/main.c sources/errors.c sources/lst_utils.c sources/utils.c
 
 OBJ_FILES = $(SRC_FILES:.c=.o)
 

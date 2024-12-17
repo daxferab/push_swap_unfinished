@@ -6,7 +6,7 @@
 /*   By: daxferna <daxferna@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/05 22:13:56 by daxferna          #+#    #+#             */
-/*   Updated: 2024/12/05 17:19:10 by daxferna         ###   ########.fr       */
+/*   Updated: 2024/12/17 23:07:54 by daxferna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,27 +28,29 @@ int ft_isnum(char *str)
 
 bool ft_imprvatoi(char *str, int *num)
 {
-	int	sign;
-	int	i;
+    int sign = 1;
+    int i = 0;
+    long result = 0;
 
-	num = 0;
-	i = 0;
-	sign = 1;
-	if (str[i] == '-' || str[i] == '+')
-	{
-		if (str[i++] == '-')
-			sign = -1;
-		if (!str[i])
-			return (0);
-	}
-	while (str[i])
-	{
-		if (!ft_isdigit(str[i]))
-			return (0);
-		*num = *num * 10 + (str[i] - '0');
-		if (*num < INT_MIN || *num > INT_MAX)
-			return (0);
-	}
-	*num *= sign;
-	return(1);
+    *num = 0;
+    if (str[i] == '-' || str[i] == '+')
+    {
+        if (str[i++] == '-')
+            sign = -1;
+        if (!str[i])
+            return (0);
+    }
+    while (str[i])
+    {
+        if (!ft_isdigit(str[i]))
+            return (0);
+        result = result * 10 + (str[i] - '0');
+        if (sign == 1 && result > INT_MAX)
+            return (0);
+        if (sign == -1 && -result < INT_MIN)
+            return (0);
+        i++;
+    }
+    *num = (int)(sign * result);
+    return (1);
 }

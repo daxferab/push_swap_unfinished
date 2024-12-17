@@ -6,7 +6,7 @@
 /*   By: daxferna <daxferna@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/07 19:07:40 by daxferna          #+#    #+#             */
-/*   Updated: 2024/12/13 15:59:04 by daxferna         ###   ########.fr       */
+/*   Updated: 2024/12/17 21:20:39 by daxferna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,18 +27,18 @@ typedef struct s_num
 //errors.c
 void		ft_error(t_num *stack_a, t_num *stack_b);
 void		ft_alreadysorted(t_num *stack_a, t_num *stack_b);
+bool		ft_repeated(t_num *stack_a);
 
 //lst_utils.c
-t_num		*ft_lstnew(void *content);
-int			ft_lstsize(t_num *lst);
-t_num		*ft_lstlast(t_num *lst);
-void		ft_lstadd_back(t_num **lst, t_num *new);
-void		ft_lstclear(t_num **lst, void (*del)(void*));
+t_num		*lstnew(int content);
+int			lstsize(t_num *lst);
+t_num		*lstlast(t_num *lst);
+void		lstadd_back(t_num **lst, t_num *new);
+void		lstclear(t_num **lst);
 
 //parse.c
-bool		ft_parse(int argc, char **argv, t_num *stack_a);
-void		ft_assignindex(t_num *stack_a);
-bool		ft_addtolist(t_num *stack_a, char *num);
+bool		ft_parse(int argc, char **argv, t_num **stack_a);
+bool		ft_addtolist(t_num **stack_a, char *num);
 
 //sort.c
 bool		ft_is_sorted(t_num *stack_a);

@@ -6,13 +6,13 @@
 /*   By: daxferna <daxferna@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/13 16:00:30 by daxferna          #+#    #+#             */
-/*   Updated: 2024/12/13 16:03:46 by daxferna         ###   ########.fr       */
+/*   Updated: 2024/12/17 20:51:47 by daxferna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../push_swap.h"
 
-t_num	*ft_lstnew(void *content)
+t_num	*lstnew(int content)
 {
 	t_num	*node;
 
@@ -24,7 +24,7 @@ t_num	*ft_lstnew(void *content)
 	return (node);
 }
 
-int	ft_lstsize(t_num *lst)
+int	lstsize(t_num *lst)
 {
 	int	i;
 
@@ -37,7 +37,7 @@ int	ft_lstsize(t_num *lst)
 	return (i);
 }
 
-t_num	*ft_lstlast(t_num *lst)
+t_num	*lstlast(t_num *lst)
 {
 	if (!lst)
 		return (0);
@@ -46,27 +46,26 @@ t_num	*ft_lstlast(t_num *lst)
 	return (lst);
 }
 
-void	ft_lstclear(t_num **lst, void (*del)(void *))
+void	lstclear(t_num **lst)
 {
 	t_num	*current;
 
-	if (!lst || !del)
+	if (!lst)
 		return ;
 	while (*lst)
 	{
 		current = *lst;
 		*lst = current->next;
-		del(current->content);
 		free(current);
 	}
 }
 
-void	ft_lstadd_back(t_num **lst, t_num *new)
+void	lstadd_back(t_num **lst, t_num *new)
 {
 	if (!lst || !new)
 		return ;
 	if (!*lst)
 		*lst = new;
 	else
-		ft_lstlast(*lst)->next = new;
+		lstlast(*lst)->next = new;
 }
