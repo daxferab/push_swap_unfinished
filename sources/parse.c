@@ -6,7 +6,7 @@
 /*   By: daxferna <daxferna@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/07 19:07:43 by daxferna          #+#    #+#             */
-/*   Updated: 2024/12/17 21:18:56 by daxferna         ###   ########.fr       */
+/*   Updated: 2024/12/18 00:41:21 by daxferna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,7 @@ bool	ft_parse(int argc, char **argv, t_num **stack_a)
 	int		j;
 
 	i = 1;
+	//TODO: Check args "", "  "...
 	while (i < argc) // Recorrer cada argumento
 	{
 		splitted_args = ft_split(argv[i++], ' '); // Split de cada argumento

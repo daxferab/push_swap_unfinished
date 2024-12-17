@@ -6,7 +6,7 @@
 /*   By: daxferna <daxferna@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/05 23:18:29 by daxferna          #+#    #+#             */
-/*   Updated: 2024/12/13 16:53:24 by daxferna         ###   ########.fr       */
+/*   Updated: 2024/12/18 00:37:39 by daxferna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,5 +30,7 @@ bool	ft_sort(t_num *stack_a, t_num *stack_b)
 {
 	if (ft_is_sorted(stack_a))
 		ft_alreadysorted(stack_a, stack_b);
+	ft_lessThanFive(stack_a, stack_b);
+	ft_radixAlgo(stack_a, stack_b);
 	return (0);
 }

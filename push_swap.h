@@ -6,7 +6,7 @@
 /*   By: daxferna <daxferna@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/07 19:07:40 by daxferna          #+#    #+#             */
-/*   Updated: 2024/12/17 21:20:39 by daxferna         ###   ########.fr       */
+/*   Updated: 2024/12/18 00:39:46 by daxferna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,9 +40,19 @@ void		lstclear(t_num **lst);
 bool		ft_parse(int argc, char **argv, t_num **stack_a);
 bool		ft_addtolist(t_num **stack_a, char *num);
 
+//radix.c
+void		ft_radixAlgo(t_num *stack_a, t_num *stack_b);
+
 //sort.c
 bool		ft_is_sorted(t_num *stack_a);
 bool		ft_sort(t_num *stack_a, t_num *stack_b);
+
+//sortToFive.c
+int			ft_sortTwo(t_num *stack_a);
+int			ft_sortThree(t_num *stack_a);
+int			ft_sortFour(t_num *stack_a, t_num *stack_b);
+int			ft_sortFive(t_num *stack_a, t_num *stack_b);
+int			ft_lessThanFive(t_num *stack_a, t_num *stack_b);
 
 //utils.c
 int			ft_isnum(char *str);
