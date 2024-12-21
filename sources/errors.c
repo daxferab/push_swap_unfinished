@@ -6,7 +6,7 @@
 /*   By: daxferna <daxferna@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/31 19:42:43 by daxferna          #+#    #+#             */
-/*   Updated: 2024/12/17 21:13:18 by daxferna         ###   ########.fr       */
+/*   Updated: 2024/12/18 01:06:13 by daxferna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,14 +17,16 @@ void ft_error(t_num *stack_a, t_num *stack_b)
 	lstclear(&stack_a);
 	lstclear(&stack_b);
 	ft_putstr_fd("Error\n", 2);
-	exit(1);
+	exit (1);
 }
 
-void ft_alreadysorted(t_num *stack_a, t_num *stack_b)
+void ft_checkSorted(t_num *stack_a, t_num *stack_b)
 {
+	if (!ft_sorted(stack_a))
+		return ;
 	lstclear(&stack_a);
 	lstclear(&stack_b);
-	exit(0);
+	exit (0);
 }
 
 bool ft_repeated(t_num *stack_a)

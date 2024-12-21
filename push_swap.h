@@ -6,7 +6,7 @@
 /*   By: daxferna <daxferna@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/07 19:07:40 by daxferna          #+#    #+#             */
-/*   Updated: 2024/12/18 00:39:46 by daxferna         ###   ########.fr       */
+/*   Updated: 2024/12/21 00:44:53 by daxferna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ typedef struct s_num
 
 //errors.c
 void		ft_error(t_num *stack_a, t_num *stack_b);
-void		ft_alreadysorted(t_num *stack_a, t_num *stack_b);
+void		ft_checkSorted(t_num *stack_a, t_num *stack_b);
 bool		ft_repeated(t_num *stack_a);
 
 //lst_utils.c
@@ -41,22 +41,24 @@ bool		ft_parse(int argc, char **argv, t_num **stack_a);
 bool		ft_addtolist(t_num **stack_a, char *num);
 
 //radix.c
-void		ft_radixAlgo(t_num *stack_a, t_num *stack_b);
+void		ft_radix_algo(t_num *stack_a, t_num *stack_b);
 
 //sort.c
-bool		ft_is_sorted(t_num *stack_a);
+bool		ft_sorted(t_num *stack_a);
 bool		ft_sort(t_num *stack_a, t_num *stack_b);
 
 //sortToFive.c
-int			ft_sortTwo(t_num *stack_a);
-int			ft_sortThree(t_num *stack_a);
-int			ft_sortFour(t_num *stack_a, t_num *stack_b);
-int			ft_sortFive(t_num *stack_a, t_num *stack_b);
-int			ft_lessThanFive(t_num *stack_a, t_num *stack_b);
+int			ft_sort_two(t_num *stack_a);
+int			ft_sort_three(t_num *stack_a);
+int			ft_sort_four(t_num *stack_a, t_num *stack_b);
+int			ft_sort_five(t_num *stack_a, t_num *stack_b);
+int			ft_less_than_five(t_num *stack_a, t_num *stack_b);
 
 //utils.c
 int			ft_isnum(char *str);
 bool		ft_imprvatoi(char *str, int *num);
+int			get_digit(int number, int digit_pos);
+void 		ft_freesplit(char **split);
 
 //sortopt:
 

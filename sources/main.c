@@ -6,7 +6,7 @@
 /*   By: daxferna <daxferna@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/07 19:10:43 by daxferna          #+#    #+#             */
-/*   Updated: 2024/12/18 00:40:46 by daxferna         ###   ########.fr       */
+/*   Updated: 2024/12/21 00:55:17 by daxferna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,5 +27,7 @@ int	main(int argc, char **argv)
 		ft_error(stack_a, stack_b);
 	if (ft_sort(stack_a, stack_b)) // Sort radix
 		ft_error(stack_a, stack_b);
+	lstclear(&stack_a);
+	lstclear(&stack_b);
 	return (0);
 }

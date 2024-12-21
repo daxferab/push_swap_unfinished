@@ -6,7 +6,7 @@
 /*   By: daxferna <daxferna@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/07 19:07:43 by daxferna          #+#    #+#             */
-/*   Updated: 2024/12/18 00:41:21 by daxferna         ###   ########.fr       */
+/*   Updated: 2024/12/21 00:43:39 by daxferna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,10 +45,10 @@ bool	ft_parse(int argc, char **argv, t_num **stack_a)
 		while (splitted_args[j]) // Recorrer cada argumento splitteado
 		{
 			if (!ft_addtolist(stack_a, splitted_args[j])) // Comprobar int y no repetido y agregar a lista
-				return (free(splitted_args), 0);
+				return (ft_freesplit(splitted_args), 0);
 			j++;
 		}
-		free(splitted_args);
+		ft_freesplit(splitted_args);
 	}
 	return (1);
 }
