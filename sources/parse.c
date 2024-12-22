@@ -5,50 +5,68 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: daxferna <daxferna@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/07 19:07:43 by daxferna          #+#    #+#             */
-/*   Updated: 2024/12/21 00:43:39 by daxferna         ###   ########.fr       */
+/*   Created: 2024/12/21 19:19:36 by daxferna          #+#    #+#             */
+/*   Updated: 2024/12/22 19:40:41 by daxferna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
+void	index_list(t_num **stack_a)
+{
+	t_num	*tmp1;
+	t_num	*tmp2;
 
-bool	ft_addtolist(t_num **stack_a, char	*num)
+	tmp1 = *stack_a;
+	while (tmp1)
+	{
+		tmp2 = *stack_a;
+		while (tmp2)
+		{
+			if (tmp1->content > tmp2->content)
+				tmp1->index++;
+			tmp2 = tmp2->next;
+		}
+		tmp1 = tmp1->next;
+	}
+}
+
+bool	addtolist(t_num **stack_a, char *num)
 {
 	t_num	*new_node;
 	int		*numint;
+
 	numint = malloc(sizeof(int));
-	if (ft_imprvatoi(num, numint) == 0) // Comprobar que esta entre minint y maxint y pasar a int
-		return (free(numint), 0);
-	new_node = lstnew(*numint); // Crear nuevo nodo
+	if (!numint)
+		return (false);
+	if (imprvatoi(num, numint) == 0)
+		return (free(numint), false);
+	new_node = lstnew(*numint);
 	free(numint);
 	if (!new_node)
-		return (0);
-	lstadd_back(stack_a, new_node); // Agregar nodo a la lista
-	return (1);
+		return (false);
+	lstadd_back(stack_a, new_node);
+	return (true);
 }
 
-bool	ft_parse(int argc, char **argv, t_num **stack_a)
+bool	parse(int argc, char **argv, t_num **stack_a)
 {
 	char	**splitted_args;
 	int		i;
 	int		j;
 
 	i = 1;
-	//TODO: Check args "", "  "...
 	while (i < argc) // Recorrer cada argumento
 	{
 		splitted_args = ft_split(argv[i++], ' '); // Split de cada argumento
-		if (splitted_args == NULL)
+		if (splitted_args == NULL || splitted_args[0] == NULL)
 			return (0);
 		j = 0;
 		while (splitted_args[j]) // Recorrer cada argumento splitteado
-		{
-			if (!ft_addtolist(stack_a, splitted_args[j])) // Comprobar int y no repetido y agregar a lista
-				return (ft_freesplit(splitted_args), 0);
-			j++;
-		}
-		ft_freesplit(splitted_args);
+			if (!addtolist(stack_a, splitted_args[j++])) // Comprobar int y no repetido y agregar a lista
+				return (freesplit(splitted_args), 0);
+		freesplit(splitted_args);
 	}
+	index_list(stack_a);
 	return (1);
 }

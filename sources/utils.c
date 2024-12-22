@@ -12,7 +12,7 @@
 
 #include "../push_swap.h"
 
-int	ft_isnum(char *str)
+int	isnum(char *str)
 {
 	int	i;
 
@@ -26,7 +26,7 @@ int	ft_isnum(char *str)
 	return (1);
 }
 
-bool ft_imprvatoi(char *str, int *num)
+bool imprvatoi(char *str, int *num)
 {
 	int sign = 1;
 	int i = 0;
@@ -55,15 +55,7 @@ bool ft_imprvatoi(char *str, int *num)
 	return (1);
 }
 
-int get_digit(int number, int digit_pos)
-{
-	while (digit_pos-- > 0) {
-		number /= 10;
-	}
-	return number % 10;
-}
-
-void ft_freesplit(char **split)
+void freesplit(char **split)
 {
 	int	i;
 
@@ -71,4 +63,18 @@ void ft_freesplit(char **split)
 	while (split[i])
 		free(split[i++]);
 	free(split);
+}
+
+bool	sorted(t_num *stack_a)
+{
+	t_num	*current;
+
+	current = stack_a;
+	while (current->next)
+	{
+		if (current->content > current->next->content)
+			return (0);
+		current = current->next;
+	}
+	return (1);
 }

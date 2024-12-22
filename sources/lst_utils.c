@@ -6,7 +6,7 @@
 /*   By: daxferna <daxferna@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/13 16:00:30 by daxferna          #+#    #+#             */
-/*   Updated: 2024/12/17 20:51:47 by daxferna         ###   ########.fr       */
+/*   Updated: 2024/12/22 18:47:12 by daxferna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@ t_num	*lstnew(int content)
 		return (0);
 	node->content = content;
 	node->next = 0;
+	node->index = 0;
 	return (node);
 }
 

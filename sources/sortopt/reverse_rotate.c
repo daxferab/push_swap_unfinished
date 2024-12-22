@@ -6,13 +6,13 @@
 /*   By: daxferna <daxferna@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/14 19:44:51 by daxferna          #+#    #+#             */
-/*   Updated: 2024/12/21 00:29:28 by daxferna         ###   ########.fr       */
+/*   Updated: 2024/12/22 03:32:50 by daxferna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../push_swap.h"
 
-t_num	*ft_penultimate(t_num *stack)
+t_num	*penultimate(t_num *stack)
 {
 	t_num	*tmp;
 
@@ -29,7 +29,7 @@ bool	rev_rotate(t_num **stack_a, char *movement)
 
 	if (lstsize(*stack_a) <= 1)
 		return (false);
-	tmp = ft_penultimate(*stack_a);
+	tmp = penultimate(*stack_a);
 	last = lstlast(*stack_a);
 	last->next = *stack_a;
 	*stack_a = last;

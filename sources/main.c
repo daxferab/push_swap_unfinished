@@ -6,7 +6,7 @@
 /*   By: daxferna <daxferna@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/07 19:10:43 by daxferna          #+#    #+#             */
-/*   Updated: 2024/12/21 00:55:17 by daxferna         ###   ########.fr       */
+/*   Updated: 2024/12/22 03:34:46 by daxferna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,12 +21,11 @@ int	main(int argc, char **argv)
 		exit(0);
 	stack_a = NULL;
 	stack_b = NULL;
-	if (!ft_parse(argc, argv, &stack_a)) // Initialize stack_a
-		ft_error(stack_a, stack_b);
-	if (ft_repeated(stack_a)) // Check repeated
-		ft_error(stack_a, stack_b);
-	if (ft_sort(stack_a, stack_b)) // Sort radix
-		ft_error(stack_a, stack_b);
+	if (!parse(argc, argv, &stack_a)) // Initialize stack_a
+		error(stack_a, stack_b);
+	if (repeated(stack_a)) // Check repeated
+		error(stack_a, stack_b);
+	sort(stack_a, stack_b); // k_sort
 	lstclear(&stack_a);
 	lstclear(&stack_b);
 	return (0);
