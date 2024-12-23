@@ -1,13 +1,13 @@
 /* ************************************************************************** */
-/*									  */
-/*							:::	 ::::::::   */
-/*   utils.c											:+:   :+:	:+:   */
-/*						  +:+ +:+	   +:+	*/
-/*   By: daxferna <daxferna@student.42madrid.com	+#+  +:+	   +#+	*/
-/*						+#+#+#+#+#+   +#+	 */
-/*   Created: 2024/11/05 22:13:56 by daxferna		#+#  #+#		  */
-/*   Updated: 2024/12/20 23:56:05 by daxferna	   ###   ########.fr	*/
-/*									  */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   utils.c                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: daxferna <daxferna@student.42madrid.com    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/12/23 01:59:23 by daxferna          #+#    #+#             */
+/*   Updated: 2024/12/23 05:37:26 by daxferna         ###   ########.fr       */
+/*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
@@ -26,12 +26,15 @@ int	isnum(char *str)
 	return (1);
 }
 
-bool imprvatoi(char *str, int *num)
+bool	imprvatoi(char *str, int *num)
 {
-	int sign = 1;
-	int i = 0;
-	long result = 0;
+	int		sign;
+	int		i;
+	long	res;
 
+	sign = 1;
+	i = 0;
+	res = 0;
 	*num = 0;
 	if (str[i] == '-' || str[i] == '+')
 	{
@@ -44,18 +47,15 @@ bool imprvatoi(char *str, int *num)
 	{
 		if (!ft_isdigit(str[i]))
 			return (0);
-		result = result * 10 + (str[i] - '0');
-		if (sign == 1 && result > INT_MAX)
+		res = res * 10 + (str[i++] - '0');
+		if ((sign == 1 && res > INT_MAX) || (sign == -1 && -1 * res < INT_MIN))
 			return (0);
-		if (sign == -1 && -result < INT_MIN)
-			return (0);
-		i++;
 	}
-	*num = (int)(sign * result);
+	*num = (int)(sign * res);
 	return (1);
 }
 
-void freesplit(char **split)
+void	freesplit(char **split)
 {
 	int	i;
 
@@ -77,4 +77,21 @@ bool	sorted(t_num *stack_a)
 		current = current->next;
 	}
 	return (1);
+}
+
+int	first_num(t_num *stack)
+{
+	t_num	*tmp;
+	int		i;
+
+	tmp = stack;
+	i = 0;
+	while (tmp)
+	{
+		if (tmp->index == 0)
+			return (i);
+		i++;
+		tmp = tmp->next;
+	}
+	return (-1);
 }

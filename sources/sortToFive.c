@@ -6,28 +6,11 @@
 /*   By: daxferna <daxferna@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/18 00:15:04 by daxferna          #+#    #+#             */
-/*   Updated: 2024/12/22 19:29:26 by daxferna         ###   ########.fr       */
+/*   Updated: 2024/12/23 05:36:28 by daxferna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
-
-int	first_num(t_num *stack)
-{
-	t_num	*tmp;
-	int		i;
-
-	tmp = stack;
-	i = 0;
-	while (tmp)
-	{
-		if (tmp->index == 0)
-			return (i);
-		i++;
-		tmp = tmp->next;
-	}
-	return (-1);
-}
 
 void	sort_two(t_num *stack_a)
 {
@@ -39,6 +22,8 @@ void	sort_three(t_num *stack_a)
 {
 	int	first;
 
+	if (sorted(stack_a))
+		return ;
 	first = first_num(stack_a);
 	if (first == 0)
 	{
@@ -59,14 +44,18 @@ void	sort_three(t_num *stack_a)
 	}
 }
 
-void	sort_four(t_num *stack_a, t_num *stack_b)
-{
-	
-}
-
 void	sort_five(t_num *stack_a, t_num *stack_b)
 {
-		// TODO: Implement function
+	while (stack_a->index != 0 && stack_a->index != 1)
+		rotate(&stack_a, "ra");
+	push(&stack_b, &stack_a, "pb");
+	while (stack_a->index != 0 && stack_a->index != 1)
+		rotate(&stack_a, "ra");
+	push(&stack_b, &stack_a, "pb");
+	sort_three(stack_a);
+	push(&stack_a, &stack_b, "pa");
+	push(&stack_a, &stack_b, "pa");
+	sort_two(stack_a);
 }
 
 bool	less_than_five(t_num *stack_a, t_num *stack_b)
@@ -75,8 +64,6 @@ bool	less_than_five(t_num *stack_a, t_num *stack_b)
 		return (sort_two(stack_a), true);
 	else if (lstsize(stack_a) == 3)
 		return (sort_three(stack_a), true);
-	else if (lstsize(stack_a) == 4)
-		return (sort_four(stack_a, stack_b), true);
 	else if (lstsize(stack_a) == 5)
 		return (sort_five(stack_a, stack_b), true);
 	return (false);

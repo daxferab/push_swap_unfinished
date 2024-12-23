@@ -6,7 +6,7 @@
 /*   By: daxferna <daxferna@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/07 19:07:40 by daxferna          #+#    #+#             */
-/*   Updated: 2024/12/22 19:21:30 by daxferna         ###   ########.fr       */
+/*   Updated: 2024/12/23 04:48:54 by daxferna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,11 +24,14 @@ typedef struct s_num
 	struct s_num	*next;
 }	t_num;
 
-
 //exceptions.c
 void		error(t_num *stack_a, t_num *stack_b);
 void		check_sorted(t_num *stack_a, t_num *stack_b);
 bool		repeated(t_num *stack_a);
+
+//ksort.c
+void		ksort_first(t_num **stack_a, t_num **stack_b, int len);
+void		ksort_second(t_num **stack_a, t_num **stack_b, int len);
 
 //lst_utils.c
 t_num		*lstnew(int content);
@@ -47,10 +50,8 @@ bool		sorted(t_num *stack_a);
 void		sort(t_num *stack_a, t_num *stack_b);
 
 //sortToFive.c
-int			first_num(t_num *stack);
 void		sort_two(t_num *stack_a);
 void		sort_three(t_num *stack_a);
-void		sort_four(t_num *stack_a, t_num *stack_b);
 void		sort_five(t_num *stack_a, t_num *stack_b);
 bool		less_than_five(t_num *stack_a, t_num *stack_b);
 
@@ -59,6 +60,7 @@ int			isnum(char *str);
 bool		imprvatoi(char *str, int *num);
 void		freesplit(char **split);
 bool		sorted(t_num *stack_a);
+int			first_num(t_num *stack);
 
 //sortopt:
 
